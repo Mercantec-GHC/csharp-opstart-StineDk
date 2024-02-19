@@ -10,3 +10,11 @@ int course2Credit = 3;
 int course3Credit = 4;
 int course4Credit = 4;
 int course5Credit = 3;
+
+int course1Grade = 4;
+int course2Grade = 3;
+int course3Grade = 3;
+int course4Grade = 3;
+int course5Grade = 4;
+
+decimal engSum = course1Grade * course1Credit;

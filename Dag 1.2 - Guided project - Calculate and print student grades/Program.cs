@@ -6,7 +6,7 @@ int sophia2 = 87;
 int sophia3 = 98;
 int sophia4 = 95;
 int sophia5 = 100;
-decimal sophiaAverage = (sophia1 + sophia2 + sophia3 + sophia4 + sophia5) / 5m;
+decimal sophiaAverage = (sophia1 + sophia2 + sophia3 + sophia4 + sophia5) / (decimal)currentAssignments;
 
 int nicolas1 = 80;
 int nicolas2 = 83;
