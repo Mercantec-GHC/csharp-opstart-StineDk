@@ -59,7 +59,7 @@ foreach (string name in studentNames)
     else if (currentStudent == "Logan")
         studentScores = loganScores;
 
-    int sumExamScores = 0;
+    int ExamScores = 0;
     decimal currentStudentGrade = 0;
     int gradedAssignments = 0;
     int sumOverAllScores = 0;
@@ -68,8 +68,17 @@ foreach (string name in studentNames)
 
     for (int i = 0;  i <= 4; i++)
     {
-        sumExamScores += studentScores[i];
+        ExamScores += studentScores[i];
     }
+
+    decimal sumExamScores = (decimal)ExamScores / 5;
+
+    for (int i = 5; i < studentScores.Length; i++)
+    {
+        extraCreditScores += studentScores[i];
+    }
+
+    decimal sumExtraCreditScores = extraCreditScores / (studentScores.Length-5);
     /* 
     the inner foreach loop sums assignment scores
     extra credit assignments are worth 10% of an exam score
@@ -79,14 +88,18 @@ foreach (string name in studentNames)
         gradedAssignments += 1;
 
         if (gradedAssignments <= examAssignments)
+        {
             sumOverAllScores += score;
-
+        }
         else
+        {
             sumOverAllScores += score / 10;
+        }
     }
 
-    currentStudentGrade = (decimal)(sumOverAllScores) / examAssignments;
-
+    currentStudentGrade = (decimal)sumOverAllScores / examAssignments;
+    extraCreditPoints = currentStudentGrade - sumExamScores;
+   
     if (currentStudentGrade >= 97)
         currentStudentLetterGrade = "A+";
 
@@ -129,7 +142,7 @@ foreach (string name in studentNames)
     // Student         Grade
     // Sophia:         92.2    A-
 
-    Console.WriteLine($"{currentStudent}\t\t{sumExamScores/5}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{extraCreditScores} ({extraCreditPoints} pts)");
+    Console.WriteLine($"{currentStudent}\t\t{sumExamScores}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}\t{sumExtraCreditScores} ({extraCreditPoints} pts)");
 }
 
 // required for running in VS Code (keeps the Output windows open to view results)
