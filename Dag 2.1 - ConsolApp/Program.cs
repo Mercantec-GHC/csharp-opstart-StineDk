@@ -118,11 +118,32 @@ foreach (int items in inventory)
 }
 Console.WriteLine($"We have {sum} items in inventroy.");*/
 
-string[] orderIDs = { "B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179" };
+/*string[] orderIDs = { "B123", "C234", "A345", "C15", "B177", "G3003", "C235", "B179" };
 foreach (string orderID in orderIDs)
 {
     if (orderID.StartsWith("B"))
     {
         Console.WriteLine(orderID);
     }
-}
+}*/
+
+/* The code converts the string to a char array.
+Then it reverses the the array, aka the last item is now the first item.
+Then it count how many 'o' charecters there is in the array.
+Then it converts the array back in to a string, aka it writes the array items in there order.
+Then it prints out the answers on the console app.*/
+
+string originalMessage = "The quick brown fox jumps over the lazy dog.";
+
+char[] charMessage = foxesActions.ToCharArray();
+
+Array.Reverse(charMessage);
+int x = 0;
+
+foreach (char i in charMessage) { if (i == 'o') { x++; } }
+
+string new_message = new String(charMessage);
+
+Console.WriteLine(new_message);
+Console.WriteLine($"'o' appears {x} times.");
+
