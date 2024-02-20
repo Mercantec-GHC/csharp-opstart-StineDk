@@ -2,50 +2,50 @@
 // initialize variables - graded assignments 
 int currentAssignments = 5;
 
-string[] students = { "Sophia", "Andrew", "Emma", "Logan" };
+string[] students = new string [] { "Sophia", "Andrew", "Emma", "Logan" };
 
-int[] sophiasScores = { 90, 86, 87, 98, 100 };
-int[] andrewsScores = { 92, 89, 81, 96, 90 };
-int[] emmasScores = { 90, 85, 87, 98, 68 };
-int[] logansScores = { 90, 95, 87, 88, 96 };
+int[] sophiaScores = { 90, 86, 87, 98, 100 };
+int[] andrewScores = { 92, 89, 81, 96, 90 };
+int[] emmaScores = { 90, 85, 87, 98, 68 };
+int[] loganScores = { 90, 95, 87, 88, 96 };
 
-int sophiaSum = 0;
-int andrewSum = 0;
-int emmaSum = 0;
-int loganSum = 0;
-
-decimal sophiasAverage;
-decimal andrewAverage;
-decimal emmamaAverage;
-decimal loganAverage;
-
-foreach (int scores in sophiasScores)
-{
-    sophiaSum += scores;
-}
-/*foreach (int scores in andrewsScores)
-{
-    andrewSum += scores; 
-}
-foreach (int scores in emmasScores)
-{
-    emmaSum += scores;
-}
-foreach (int scores in logansScores)
-{
-    loganSum += scores;
-}*/
-
-sophiasAverage = (decimal)sophiaSum / currentAssignments;
-andrewAverage = (decimal)andrewSum / currentAssignments;
-emmamaAverage = (decimal)emmaSum / currentAssignments;
-loganAverage = (decimal)loganSum / currentAssignments;
+int[] studentScores = new int[10];
 
 Console.WriteLine("Student\t\tGrade\n");
-Console.WriteLine($"Sophia:\t\t{sophiasAverage}\tA-");/*
-Console.WriteLine($"Andrew:\t\t{andrewAverage}\tB+");
-Console.WriteLine($"Emma:\t\t{emmamaAverage}\tB");
-Console.WriteLine($"Logan:\t\t{loganAverage}\tA-");*/
+
+foreach (string name in students)
+{
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+    {
+        studentScores = sophiaScores;
+    }
+    else if (currentStudent == "Andrew")
+    {
+        studentScores = andrewScores;
+    }
+    else if (currentStudent == "Emma")
+    {
+        studentScores = emmaScores;
+    }
+    else if (currentStudent == "Logan")
+    {
+        studentScores = loganScores;
+    }
+
+    int sumAssignmentScores = 0;
+    decimal currentStudentGrade = 0;
+
+    foreach (int score in studentScores)
+    {
+        sumAssignmentScores += score;
+    }
+
+    currentStudentGrade = (decimal)sumAssignmentScores / currentAssignments;
+
+    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t?");
+}
 
 Console.WriteLine("\nPress the Enter key to continue");
 Console.ReadLine();
