@@ -135,7 +135,7 @@ Then it prints out the answers on the console app.*/
 
 string originalMessage = "The quick brown fox jumps over the lazy dog.";
 
-char[] charMessage = foxesActions.ToCharArray();
+char[] charMessage = originalMessage.ToCharArray();
 
 Array.Reverse(charMessage);
 int x = 0;
