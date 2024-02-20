@@ -64,7 +64,7 @@ if (message.Contains("fox"))
     Console.WriteLine("What does the fox say?");
 }*/
 
-Random random = new Random();
+/*Random random = new Random();
 int daysUntilExpiration = 1;
 //int daysUntilExpiration = random.Next(12);
 int discountPercentage = 0;
@@ -87,4 +87,14 @@ if (daysUntilExpiration <= 10)
         Console.WriteLine("Your subscription wil expire soon. Renew now!");
     }
 }
-else { }
+else {}*/
+
+string[] fraudulentOrderIDs = new string[3];
+fraudulentOrderIDs[0] = "A123";
+fraudulentOrderIDs[1] = "B456";
+fraudulentOrderIDs[2] = "C789";
+Console.WriteLine($"First: {fraudulentOrderIDs[0]}");
+Console.WriteLine($"Second: {fraudulentOrderIDs[1]}");
+Console.WriteLine($"Third: {fraudulentOrderIDs[2]}");
+fraudulentOrderIDs[0] = "F000";
+Console.WriteLine($"Reassign First: {fraudulentOrderIDs[0]}");
