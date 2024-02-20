@@ -20,13 +20,12 @@ int secondValue = 600;
 int largerValue = Math.Max(secondValue, firstValue);
 Console.WriteLine(largerValue);*/
 
-Random dice = new Random();
+/*Random dice = new Random();
 int roll1 = dice.Next(1, 7);
 int roll2 = dice.Next(1, 7);
 int roll3 = dice.Next(1, 7);
 int total = roll1 + roll2 + roll3;
 Console.WriteLine($"Dice roll: {roll1} + {roll2} + {roll3} = {total}");
-
 if ((roll1 == roll2) || (roll2 == roll3) || (roll1 == roll3))
 {
     if ((roll1 == roll2) && (roll2 == roll3))
@@ -55,8 +54,7 @@ else if (total == 7)
 else
 {
     Console.WriteLine("You win a kitten!");
-}
-
+}*/
 
 /*string message = "The quick brown fox jumps over the lazy dog.";
 bool result = message.Contains("dog");
@@ -65,3 +63,28 @@ if (message.Contains("fox"))
 {
     Console.WriteLine("What does the fox say?");
 }*/
+
+Random random = new Random();
+int daysUntilExpiration = 1;
+//int daysUntilExpiration = random.Next(12);
+int discountPercentage = 0;
+if (daysUntilExpiration <= 10)
+{
+    if (daysUntilExpiration == 0)
+    {
+        Console.WriteLine("Your subscription has expired.");
+    }
+    else if (daysUntilExpiration == 1)
+    {
+        Console.WriteLine("Your subscription has expired. \nRenew now and save 20%!");
+    }
+    else if (daysUntilExpiration <= 5)
+    {
+        Console.WriteLine($"Your subscription expires in {daysUntilExpiration} days. \nRenew now and save 10%!");
+    }
+    else
+    {
+        Console.WriteLine("Your subscription wil expire soon. Renew now!");
+    }
+}
+else { }
