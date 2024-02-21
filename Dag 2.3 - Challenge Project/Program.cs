@@ -48,17 +48,21 @@ foreach (string name in studentNames)
     string currentStudent = name;
 
     if (currentStudent == "Sophia")
+    {
         studentScores = sophiaScores;
-
+    }
     else if (currentStudent == "Andrew")
+    {
         studentScores = andrewScores;
-
+    }
     else if (currentStudent == "Emma")
+    {
         studentScores = emmaScores;
-
+    }
     else if (currentStudent == "Logan")
+    {
         studentScores = loganScores;
-
+    }
     int ExamScores = 0;
     decimal currentStudentGrade = 0;
     int gradedAssignments = 0;
@@ -71,14 +75,14 @@ foreach (string name in studentNames)
         ExamScores += studentScores[i];
     }
 
-    decimal sumExamScores = (decimal)ExamScores / 5;
+    decimal sumExamScores = (decimal)ExamScores / examAssignments;
 
     for (int i = 5; i < studentScores.Length; i++)
     {
         extraCreditScores += studentScores[i];
     }
 
-    decimal sumExtraCreditScores = extraCreditScores / (studentScores.Length-5);
+    decimal sumExtraCreditScores = extraCreditScores / (studentScores.Length-examAssignments);
     /* 
     the inner foreach loop sums assignment scores
     extra credit assignments are worth 10% of an exam score
@@ -99,46 +103,59 @@ foreach (string name in studentNames)
 
     currentStudentGrade = (decimal)sumOverAllScores / examAssignments;
     extraCreditPoints = currentStudentGrade - sumExamScores;
-   
+
     if (currentStudentGrade >= 97)
+    {
         currentStudentLetterGrade = "A+";
-
+    }
     else if (currentStudentGrade >= 93)
+    {
         currentStudentLetterGrade = "A";
-
+    }
     else if (currentStudentGrade >= 90)
+    {
         currentStudentLetterGrade = "A-";
-
+    }
     else if (currentStudentGrade >= 87)
+    {
         currentStudentLetterGrade = "B+";
-
+    }
     else if (currentStudentGrade >= 83)
+    {
         currentStudentLetterGrade = "B";
-
+    }
     else if (currentStudentGrade >= 80)
+    {
         currentStudentLetterGrade = "B-";
-
+    }
     else if (currentStudentGrade >= 77)
+    {
         currentStudentLetterGrade = "C+";
-
+    }
     else if (currentStudentGrade >= 73)
+    {
         currentStudentLetterGrade = "C";
-
+    }
     else if (currentStudentGrade >= 70)
+    {
         currentStudentLetterGrade = "C-";
-
+    }
     else if (currentStudentGrade >= 67)
+    {
         currentStudentLetterGrade = "D+";
-
+    }
     else if (currentStudentGrade >= 63)
+    {
         currentStudentLetterGrade = "D";
-
+    }
     else if (currentStudentGrade >= 60)
+    {
         currentStudentLetterGrade = "D-";
-
+    }
     else
+    {
         currentStudentLetterGrade = "F";
-
+    }
     // Student         Grade
     // Sophia:         92.2    A-
 
