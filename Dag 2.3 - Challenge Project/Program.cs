@@ -62,7 +62,7 @@ foreach (string name in studentNames)
     int ExamScores = 0;
     decimal currentStudentGrade = 0;
     int gradedAssignments = 0;
-    int sumOverAllScores = 0;
+    decimal sumOverAllScores = 0;
     int extraCreditScores = 0;
     decimal extraCreditPoints = 0;
 
@@ -93,7 +93,7 @@ foreach (string name in studentNames)
         }
         else
         {
-            sumOverAllScores += score / 10;
+            sumOverAllScores += (decimal)score / 10;
         }
     }
 
