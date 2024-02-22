@@ -209,7 +209,8 @@ Console.WriteLine(result);*/
 
 
 
-string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+// Sorting then order numbers, Checking for wrong order numbers and reporting error with the faulty order numbers
+/*string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
 string[] ordersArray = orderStream.Split(',');
 Array.Sort(ordersArray);
 for (int i = 0; i < ordersArray.Length; i++)
@@ -221,7 +222,104 @@ for (int i = 0; i < ordersArray.Length; i++)
     }
     else
     {
-        Console.WriteLine(@$"Order number {i}: {ordersArray[i]}      - Error");
+        Console.WriteLine($"Order number {i}: {ordersArray[i]}  - Error");
     }
+}*/
 
-}
+// Experimenting with string Composite 
+/*string first = "Hello";
+string second = "World";
+Console.WriteLine("{1} {0}!", first, second);
+Console.WriteLine("{0} {0} {0}!", first, second);*/
+
+
+// String interpolation
+/*string first = "Hello";
+string second = "World!";
+Console.WriteLine($"{first} {second}");
+Console.WriteLine($"{second} {first}!");
+Console.WriteLine($"{first} {first} {first}!");*/
+
+
+// Formatting currency
+/*decimal price = 123.45m;
+int discount = 50;
+Console.WriteLine($"Price: {price:C} (Save {discount:C})");*/
+
+
+//Formatting numbers
+/*decimal measurement = 123456.78912m;
+Console.WriteLine($"Measurement: {measurement:N} units");*/
+
+
+//Formatting percentages
+/*decimal tax = .36785m;
+Console.WriteLine($"Tax rate: {tax:P2}");*/
+
+
+//Combining formatting approaches
+/*decimal price = 67.55m;
+decimal salePrice = 59.99m;
+string yourDiscount = String.Format("you saved {0:C2} off the regular {1:C2} price. ", (price - salePrice), price);
+yourDiscount += $"A discount of {((price - salePrice) / price):P2}!";
+Console.WriteLine(yourDiscount);*/
+
+
+// Exersice with numbers using string interpolation
+/*int invoiceNumber = 1201;
+decimal productShares = 25.4568m;
+decimal subtotal = 2750.00m;
+decimal taxPercentage = .15825m;
+decimal total = 3185.19m;
+
+Console.WriteLine($"Invoice Number: {invoiceNumber}");
+Console.WriteLine($"Shares: {productShares:N3} Product");
+Console.WriteLine($"Sub Total: {subtotal:C}");
+Console.WriteLine($"Tax: {taxPercentage:P2}");
+Console.WriteLine($"Total Billed: {total:C}");*/
+
+
+// adding whitespace befor or after 
+/*string input = "Pad this";
+Console.WriteLine(input.PadLeft(12));
+Console.WriteLine(input.PadRight(12));*/
+
+
+//Overloaded method ??
+/*string input = "Pad this";
+Console.WriteLine(input.PadLeft(12, '-'));
+Console.WriteLine(input.PadRight(12, '-'));*/
+
+
+/*string paymentId = "769C";
+string payeeName = "Mr. Stephen Ortega";
+string paymentAmount = "$5,000.00";
+var formattedLine = paymentId.PadRight(6);
+formattedLine += payeeName.PadRight(24);
+formattedLine += paymentAmount.PadLeft(10);
+
+Console.WriteLine("1234567890123456789012345678901234567890");
+Console.WriteLine(formattedLine);*/
+
+
+// Exercise
+string client = "Ms. Barros";
+decimal currentOwn = 2975000.00m;
+decimal currentPercentageReturn = .1275m;
+decimal potentialPercentageReturn = .1313m;
+decimal potentialProfit = 63000000.00m;
+decimal currentProfit = 55000000.00m;
+string currentInvestment = "Magic Yield";
+string potentialInvestment = "Glorious Future";
+
+Console.WriteLine($"Dear {client},");
+Console.WriteLine($"As a customer of our {currentInvestment} offering we are excited to tell you about a new financial product that would dramatically increase your return.");
+Console.WriteLine();
+Console.WriteLine($"Currently, you own {currentOwn} shares at a return of {currentPercentageReturn:P2} %");
+Console.WriteLine();
+Console.WriteLine($"Our new product, {potentialInvestment} offers a return of {potentialPercentageReturn:P2} %.  Given your current volume, your potential profit would be {potentialProfit:N2:C}.");
+Console.WriteLine();
+Console.WriteLine("Here's a quick comparison:");
+Console.WriteLine();
+Console.WriteLine($"{currentInvestment}\t\t{currentPercentageReturn:P2}\t{currentProfit:N2:C}");
+Console.WriteLine($"{potentialInvestment}\t{potentialPercentageReturn:P2}\t{potentialProfit:N2:C}");
