@@ -179,7 +179,7 @@ foreach (var pallet in pallets)
     Console.WriteLine($"-- {pallet}");
 }*/
 
-// Experimenting with Array.Reverse, converting a string to a char array, string.Join adds char between chars in the array, .Split removes the distancing char in between the chars in the array.
+// Experimenting with Array.Reverse, converting a string to a char array, string. Join adds char between chars in the array, .Split removes the distancing char in between the chars in the array.
 /*string value = "abc123";
 char[] valueArray = value.ToCharArray();
 Array.Reverse(valueArray);
