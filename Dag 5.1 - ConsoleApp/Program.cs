@@ -580,7 +580,7 @@ bool IsPalindrome(string word)
 
 
 // Exercise Return arrays from methods
-int target = 30;
+/*int target = 30;
 int[] coins = new int[] { 5, 5, 50, 25, 25, 10, 5 };
 int[,] result = TwoCoins(coins, target);
 if (result.Length == 0)
@@ -620,4 +620,45 @@ int[,] TwoCoins(int[] coins, int target)
         }
     }
     return (count == 0) ? new int[0, 0] : result;
+}*/
+
+
+
+// Exercise Complete the challenge to add methods to make the game playable
+Random random = new Random();
+Console.WriteLine("Would you like to play? (Y/N)");
+if (ShouldPlay())
+{
+    PlayGame();
+}
+void PlayGame()
+{
+    var play = true;
+
+    while (play)
+    {
+        var target = random.Next(1, 6);
+        var roll = random.Next(1, 7);
+
+        Console.WriteLine($"Roll a number greater than {target} to win!");
+        Console.WriteLine($"You rolled a {roll}");
+        Console.WriteLine(WinOrLose(target.ToString(), roll.ToString()));
+        Console.WriteLine("\nPlay again? (Y/N)");
+
+        play = ShouldPlay();
+    }
+}
+bool ShouldPlay()
+{
+    string playExit = Console.ReadLine();
+    return playExit.ToLower().Equals("y");
+}
+string WinOrLose(string beat, string rolled)
+{
+    int result = int.Parse(beat) - int.Parse(rolled);
+    if (result > 0)
+    {
+        return "You Lose!";
+    } 
+        return "You Win!!";
 }
