@@ -27,13 +27,21 @@ int food = 0;
 InitializeGame();
 while (!shouldExit) 
 {
-    Move();
+    TerminalResized();
+    Move(true);
+    ConsumeCheck();
+    CheckPlayerApperance();
 }
 
 // Returns true if the Terminal was resized 
 bool TerminalResized() 
 {
-    return height != Console.WindowHeight - 1 || width != Console.WindowWidth - 5;
+    if (height != Console.WindowHeight - 1 || width != Console.WindowWidth - 5)
+    {
+        Console.WriteLine("Console was resized. Program exiting.");
+        return shouldExit = true;
+    }
+    return shouldExit = false;
 }
 
 // Displays random food at a random location
@@ -67,11 +75,20 @@ void FreezePlayer()
 }
 
 // Reads directional input from the Console and moves the player
-void Move() 
+void Move(bool shutDown = false, int speedCheck = 0) 
 {
     int lastX = playerX;
     int lastY = playerY;
-    
+    if (speedCheck > 0 )
+    {
+        Console.CursorVisible = false;
+        Thread.Sleep(0);
+    }
+    else if (speedCheck < 0 )
+    {
+        Console.CursorVisible = false;
+        Thread.Sleep(100);
+    }
     switch (Console.ReadKey(true).Key) 
     {
         case ConsoleKey.UpArrow:
@@ -89,8 +106,15 @@ void Move()
 		case ConsoleKey.Escape:     
             shouldExit = true; 
             break;
+        default:
+        if (shutDown == true)
+            {
+                shouldExit = true;
+                return;
+            }
+            break;
     }
-
+    
     // Clear the characters at the previous position
     Console.SetCursorPosition(lastX, lastY);
     for (int i = 0; i < player.Length; i++) 
@@ -114,4 +138,29 @@ void InitializeGame()
     ShowFood();
     Console.SetCursorPosition(0, 0);
     Console.Write(player);
+}
+bool ConsumeCheck()
+{
+    if (playerX == foodX && playerY == foodY)
+    {
+        ChangePlayer();
+        ShowFood();
+        return true;
+    }
+    return false;
+}
+bool CheckPlayerApperance()
+{
+    if (player == states[2])
+    {
+        FreezePlayer();
+        return true;
+    }
+    else if (player == states[1])
+    {
+        Console.CursorVisible = false;
+        Thread.Sleep(250);
+        return true;
+    }
+    return false;
 }
