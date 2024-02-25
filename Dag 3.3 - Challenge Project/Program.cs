@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.ExceptionServices;
 
 // the ourAnimals array will store the following: 
 string animalSpecies = "";
@@ -286,15 +287,68 @@ do
             break;
 
         case "3":
-            // Ensure animal ages and physical descriptions are complete
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            for (int i = 0; i < ourAnimals.GetLength(0); i++)
+            {
+                if (ourAnimals[i, 0].Length != 0)
+                {
+                    string answer;
+                    string result;
+                    Console.WriteLine($"{ourAnimals[i, 0]}\n{ourAnimals[i, 2]}");
+                    Console.WriteLine($"Do you want to change the age of {ourAnimals[i, 0]}? yes/no");
+                    answer = Console.ReadLine().ToLower();
+                    if (answer.Contains("y"))
+                    {
+                        Console.WriteLine("What is the age of the animal?");
+                        result = Console.ReadLine();
+                        ourAnimals[i, 2] = "Age: " + result;
+                        Console.WriteLine($"You assigned the age {result} to {ourAnimals[i, 0]}");
+                    }
+                    Console.WriteLine($"{ourAnimals[i, 0]}\n{ourAnimals[i, 4]}.");
+                    Console.WriteLine($"Do you want to change the physical description of {ourAnimals[i, 0]}? yes/no");
+                    answer = Console.ReadLine().ToLower();
+                    if (answer.Contains("y"))
+                    {
+                        Console.WriteLine("What is the physical description of the animal?");
+                        result = Console.ReadLine().ToLower();
+                        ourAnimals[i, 4] = "Physical description: " + result;
+                        Console.WriteLine($"You assigned the physical description '{result}' to {ourAnimals[i, 0]}.");
+                    }
+                }
+            }
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
 
         case "4":
             // Ensure animal nicknames and personality descriptions are complete
-            Console.WriteLine("Challenge Project - please check back soon to see progress.");
+            for (int i = 0; i < ourAnimals.GetLength(0); i++)
+            {
+                if (ourAnimals[i, 0].Length == 2)
+                {
+                    string answer;
+                    string result;
+                    Console.WriteLine($"{ourAnimals[i, 0]}\n{ourAnimals[i, 5]}");
+                    Console.WriteLine($"Do you want to change the personality description of {ourAnimals[i, 0]}? yes/no");
+                    answer = Console.ReadLine().ToLower();
+                    if (answer.Contains("y"))
+                    {
+                        Console.WriteLine("What is the personality description of the animal?");
+                        result = Console.ReadLine().ToLower();
+                        ourAnimals[i, 5] = "Personality: " + result;
+                        Console.WriteLine($"You assigned the personality description '{result}' to {ourAnimals[i, 0]}.");
+                    }
+                    Console.WriteLine($"{ourAnimals[i, 0]}\n{ourAnimals[i, 3]}");
+                    Console.WriteLine($"Do you want to change the nickname of {ourAnimals[i, 0]}? yes/no");
+                    answer = Console.ReadLine().ToLower();
+                    if (answer.Contains("y"))
+                    {
+                        Console.WriteLine("What is the nickname of the animal?");
+                        result = Console.ReadLine().ToLower();
+                        ourAnimals[i, 3] = "Nickname: " + result;
+                        Console.WriteLine($"You assigned the nickname '{result}' to {ourAnimals[i, 0]}.");
+                    }
+                }
+            }
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
