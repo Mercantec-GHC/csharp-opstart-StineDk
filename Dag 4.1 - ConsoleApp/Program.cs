@@ -131,7 +131,7 @@ float result3 = value3 / (float)value1;
 Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");*/
 
 
-// Array.Sort and Arry.Revers experiment
+// Array.Sort and Array.Revers experiment
 /*string[] pallets = { "B14", "A11", "B12", "A13" };
 
 Console.WriteLine("Sorted...");
